@@ -52,7 +52,7 @@ BEGIN
 		$n
 	);
 
-	$VERSION = "0.11";
+	$VERSION = "0.12";
 
 	$EPOCH = 2796;
 
@@ -1048,8 +1048,8 @@ leap year follows as per;  February will have a 29th day:
 
 The Ethiopic calendar gets an extra day at the end of the 13th month on leap
 year (which occurs the year before Gregorian leap year).
-It is not know however if the Ethiopic calendar follows the 2,000 year rule.
-If it does NOT follow the 2,000 year rule then consequence would be that the
+It is not known however if the Ethiopic calendar follows the 2,000 year rule.
+If it does NOT follow the 2,000 year rule the consequence would be that the
 difference between the two calendar systems will increase by a single day.
 Hence if you reckon your birthday in the Ethiopic system, that date in
 Gregorian may change in five years.  The algorithm here here assumes that

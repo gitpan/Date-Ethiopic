@@ -10,21 +10,21 @@ BEGIN
 	);
 	@Days =(
 		[ "ሰንበት ዓባይ",	"Senbet Abay" ],
-		[ "አትኒን",	"Altnin"      ],
-		[ "አታሉት",	"Atalut"      ],
-		[ "አራቦዐ",	"Arerba'a"    ],  # አረርባዓ
-		[ "ኻሚስ",	"Alkamis"     ],
-		[ "ጅምዓት",	"Aljim'at"    ],
-		[ "ሰንበት ንኢሽ",	"Senbet Nish" ],
+		[ "ሰኖ",		"Seno"        ],
+		[ "ታላሸኖ",	"Talasheno"   ],
+		[ "ኣረርባዓ",	"Arerba'a"    ],
+		[ "ከሚሽ",	"Kemish"      ],
+		[ "ጅምዓት",	"Jim'at"      ],
+		[ "ሰንበት ንኢሽ",	"Senbet Nish" ]
 	);
 	@ShortDays =(
 		[ "ሰ/ዓ",	"S/A" ],
-		[ "አትኒ",	"Alt" ],
-		[ "አታሉ",	"Ata" ],
-		[ "አራቦ",	"Are" ],
-		[ "ኻሚስ",	"Alk" ],
-		[ "ጅምዓ",	"Alj" ],
-		[ "ሰ/ን",	"S/N" ],
+		[ "ሰኖ",		"Sen" ],
+		[ "ታላሸ",	"Tal" ],
+		[ "ኣረር",	"Are" ],
+		[ "ከሚሽ",	"Kem" ],
+		[ "ጅምዓ",	"Jim" ],
+		[ "ሰ/ን",	"S/N" ]
 	);
 	require Date::Ethiopic::ti;
 }
@@ -33,6 +33,18 @@ BEGIN
 sub _daysep
 {
 	($_[0]->{_trans}) ? " Yom " : " ዮም ";
+}
+
+
+sub am
+{
+	($_[0]->{_trans}) ? "KS" : "ቀደም ሰርምዕል";
+}
+
+
+sub pm
+{
+	($_[0]->{_trans}) ? "HS" : "ሓቆ ስርምዕል";
 }
 
 

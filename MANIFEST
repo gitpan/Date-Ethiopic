@@ -12,10 +12,12 @@ doc/Tabots.html
 doc/Tsomes.html
 doc/index.html
 examples/dates.pl
+examples/edate.pl
 lib/Date/Ethiopic.pm
 lib/Date/Ethiopic/ER/byn.pm
 lib/Date/Ethiopic/ER/gez.pm
 lib/Date/Ethiopic/ER/ti.pm
+lib/Date/Ethiopic/ER/tig.pm
 lib/Date/Ethiopic/ET/am.pm
 lib/Date/Ethiopic/ET/gez.pm
 lib/Date/Ethiopic/ET/gru.pm
@@ -23,7 +25,6 @@ lib/Date/Ethiopic/ET/guy.pm
 lib/Date/Ethiopic/ET/har.pm
 lib/Date/Ethiopic/ET/qim.pm
 lib/Date/Ethiopic/ET/ti.pm
-lib/Date/Ethiopic/ER/tig.pm
 lib/Date/Ethiopic/ET/zgu.pm
 lib/Date/Ethiopic/ER.pm
 lib/Date/Ethiopic/ET.pm
