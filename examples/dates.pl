@@ -165,3 +165,24 @@ print "Testing[17]: ", $zgu->name, "\n";
 print "  Ethiopic : ", $zgu->day,"/",$zgu->month,"/",$zgu->year,"\n";
 print "  Day   Name: ", $zgu->day_name, "\n";
 print "  Month Name: ", $zgu->month_name, "\n";
+
+
+__END__
+
+=head1 NAME
+
+dates.pl - Conversion Demonstration for 17 dates.
+
+=head1 SYNOPSIS
+
+./dates.pl
+
+=head1 DESCRIPTION
+
+A demonstrator script to illustrate usage of L<Date::Ethiopic> and friends.
+
+=head1 AUTHOR
+
+Daniel Yacob,  L<dyacob@cpan.org|mailto:dyacob@cpan.org>
+
+=cut

@@ -38,9 +38,9 @@ WriteMakefile(
 	NAME		=> 'Date::Ethiopic',
 	DISTNAME	=> 'Date-Ethiopic',
 	VERSION_FROM	=> 'lib/Date/Ethiopic.pm', # finds $VERSION
-	AUTHOR  	=> "Daniel Yacob <Yaocb\@EthiopiaOnline.Net>",
+	AUTHOR  	=> "Daniel Yacob <dyacob\@cpan.org>",
 	ABSTRACT	=> "ICalendar for the Ethiopic Calendar System.",
-	PREREQ_PM 	=> { 'Date::ICal' => 0, 'Convert::Ethiopic::Lite::Number' => 0 },
+	PREREQ_PM 	=> { 'Date::ICal' => 0, 'Convert::Number::Ethiopic' => '0.15' },
 
 	dist			=>	{
 		COMPRESS        =>	"gzip -9f",

@@ -70,12 +70,6 @@ BEGIN
 }
 
 
-#
-#  auto utf8 doesn't penetrate several levels of inheritence
-#
-# use utf8;
-
-
 sub _daysep
 {
 	($_[0]->{_trans}) ? " Me'alti " : " መዓልቲ "; # ዕለት
@@ -161,12 +155,12 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ti - Tigrinya Calendar Data for Date::Ethiopic.
+Date::Ethiopic::ti - Tigrinya Calendar Data for L<Date::Ethiopic>.
 
 =head1 DESCRIPTION
 
-The Date::Ethiopic::ti module is a base class for Date::Ethiopic::ER::ti
-and Date::Ethiopic::ET::ti and is not intended for independent use.
+The Date::Ethiopic::ti module is a base class for L<Date::Ethiopic::ER::ti>
+and L<Date::Ethiopic::ET::ti> and is not intended for independent use.
 
 
 =head1 CREDITS
@@ -190,11 +184,10 @@ to comment out this line.
 
 =head1 AUTHOR
 
-Daniel Yacob,  L<Yacob@EthiopiaOnline.Net|mailto:Yacob@EthiopiaOnline.Net>
+Daniel Yacob,  L<dyacob@cpan.org|mailto:dyacob@cpan.org>
 
 =head1 SEE ALSO
 
-Date::Ethiopic::ER::ti
-Date::Ethiopic::ET::ti
+L<Date::Ethiopic::ER::ti>    L<Date::Ethiopic::ET::ti>
 
 =cut

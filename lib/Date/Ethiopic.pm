@@ -52,14 +52,14 @@ BEGIN
 		$n
 	);
 
-	$VERSION = "0.12";
+	$VERSION = "0.13";
 
 	$EPOCH = 2796;
 
 	($false,$true) = (0,1);
 
-	require Convert::Ethiopic::Lite::Number;
-	$n = new Convert::Ethiopic::Lite::Number;
+	require Convert::Number::Ethiopic;
+	$n = new Convert::Number::Ethiopic;
 
 	@GregorianDaysPerMonth = ( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
 
@@ -1083,17 +1083,17 @@ for updates as they come in.
 
 =head1 CREDITS
 
- Calendrical Calculations: http://www.calendarists.com/
- Bahra Hasab: http://www.hmml.org/events/
- LibEth: http://libeth.sourceforge.net/
- Ethiopica: http://ethiopica.sourceforge.net/
- Saint Gebriel Ethiopian Orthodox Church of Seattle: http://www.st-gebriel.org/
- Aklile Birhan Wold Kirkos, Metsaheit Tibeb, Neged Publishers, Addis Ababa, 1955 (1948 EC).
+=item Calendrical Calculations: L<http://www.calendarists.com/>
+=item Bahra Hasab: L<http://www.hmml.org/events/>
+=item LibEth: L<http://libeth.sourceforge.net/>
+=item Ethiopica: L<http://ethiopica.sourceforge.net/>
+=item Saint Gebriel Ethiopian Orthodox Church of Seattle: L<http://www.st-gebriel.org/>
+=item Aklile Birhan Wold Kirkos, Metsaheit Tibeb, Neged Publishers, Addis Ababa, 1955 (1948 EC).
 
 =head1 REQUIRES
 
-Date::ICal and Convert::Ethiopic::Lite::Number.  It should work with
-any version of Perl.  Convert::Ethiopic::Lite::Number is only required
+Date::ICal and L<Convert::Number::Ethiopic>.  It should work with
+any version of Perl.  L<Convert::Number::Ethiopic> is only required
 if you want to display years and days in Ethiopic numerals.
 
 =head1 COPYRIGHT
@@ -1119,11 +1119,11 @@ Otherwise, this module is free software; you can redistribute it and/or modify i
 
 =head1 BUGS
 
-None known yet.
+None presently known.
 
 =head1 AUTHOR
 
-Daniel Yacob,  L<Yacob@EthiopiaOnline.Net|mailto:Yacob@EthiopiaOnline.Net>
+Daniel Yacob,  L<dyacob@cpan.org|mailto:dyacob@cpan.org>
 
 =head1 SEE ALSO
 

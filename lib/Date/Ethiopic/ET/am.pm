@@ -80,7 +80,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET::am - Amharic Calendar Data for Date::Ethiopic.
+Date::Ethiopic::ET::am - Amharic Calendar Data for L<Date::Ethiopic>.
 
 =head1 SYNOPSIS
 
@@ -146,11 +146,11 @@ This module is free software; you can redistribute it and/or modify it under the
 
 =head1 BUGS
 
-None known yet.
+None presently known.
 
 =head1 AUTHOR
 
-Daniel Yacob,  L<Yacob@EthiopiaOnline.Net|mailto:Yacob@EthiopiaOnline.Net>
+Daniel Yacob,  L<dyacob@cpan.org|mailto:dyacob@cpan.org>
 
 =head1 SEE ALSO
 

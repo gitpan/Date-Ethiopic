@@ -69,7 +69,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ER - Eritrean Calendar Data for Date::Ethiopic.
+Date::Ethiopic::ER - Eritrean Calendar Data for L<Date::Ethiopic>.
 
 =head1 DESCRIPTION
 
@@ -97,6 +97,6 @@ to comment out this line.
 
 =head1 AUTHOR
 
-Daniel Yacob,  L<Yacob@EthiopiaOnline.Net|mailto:Yacob@EthiopiaOnline.Net>
+Daniel Yacob,  L<dyacob@cpan.org|mailto:dyacob@cpan.org>
 
 =cut

@@ -1,6 +1,7 @@
 package Date::Ethiopic::gez;
 use base ( "Date::Ethiopic" );
 
+use utf8;
 BEGIN
 {
 	use strict;
@@ -156,12 +157,12 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::gez - Ge'ez Calendar Data for Date::Ethiopic.
+Date::Ethiopic::gez - Ge'ez Calendar Data for L<Date::Ethiopic>.
 
 =head1 DESCRIPTION
 
-The Date::Ethiopic::gez module is a base class for Date::Ethiopic::ER::gez
-and Date::Ethiopic::ET::gez and is not intended for independent use.  The
+The Date::Ethiopic::gez module is a base class for L<Date::Ethiopic::ER::gez>
+and L<Date::Ethiopic::ET::gez> and is not intended for independent use.  The
 translations for AM and PM are actually Tigrinya.
 
 
@@ -186,11 +187,10 @@ to comment out this line.
 
 =head1 AUTHOR
 
-Daniel Yacob,  L<Yacob@EthiopiaOnline.Net|mailto:Yacob@EthiopiaOnline.Net>
+Daniel Yacob,  L<dyacob@cpan.org|mailto:dyacob@cpan.org>
 
 =head1 SEE ALSO
 
-Date::Ethiopic::ER::gez
-Date::Ethiopic::ET::gez
+L<Date::Ethiopic::ER::gez>    L<Date::Ethiopic::ET::gez>
 
 =cut
