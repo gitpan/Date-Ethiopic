@@ -3,121 +3,62 @@ use base ( "Date::Ethiopic" );
 
 BEGIN
 {
-use strict;
-use utf8;
-use vars qw(
-	@Days
-	@DaysTranscribed
-	@Months
-	@MonthsTranscribed
-	@ShortDays
-	@ShortDaysTranscribed
-	@ShortMonths
-	@ShortMonthsTranscribed
-);
-@Days =(
-	"አኀዱ",  # እኁድ
-	"ሰኑይ",  # ዕብራ
-	"ሠሉስ",  # ምንትው
-	"ራብዕ",  # ረቡዕ
-	"ኃምስ",
-	"ዓርበ",
-	"ቀዳም"   # ቀዳሚት
-);
-@Months =(
-	"ከረመ",
-	"ጠቀመ",
-	"ኀደረ",
-	"ኀሠሠ",
-	"ጠሐረ",  # ጥሕረ
-	"ከተተ",
-	"መገበ",
-	"አኀዘ",
-	"ግንባት",
-	"ሠንየ",
-	"ሐመለ",
-	"ነሐሰ",
-	"ጳጕሜን"
-);
-@DaysTranscribed =(
-	"Ahadu",
-	"Senuy",
-	"Sellus",
-	"Rabi",
-	"Hamis",
-	"Arbe",
-	"Kedam"
-);
-@MonthsTranscribed =(
-	"Kereme",
-	"Tekeme",
-	"Hedere",
-	"Hesese",
-	"Tehere",
-	"Ketete",
-	"Megebe",
-	"Aheze",
-	"Genbat",
-	"Senye",
-	"Hemele",
-	"Nehese",
-	"Pagumen"
-);
-@ShortDays =(
-	"አኀዱ",
-	"ሰኑይ",
-	"ሠሉስ",
-	"ራብዕ",
-	"ኃምስ",
-	"ዓርበ",
-	"ቀዳም"
-);
-@ShortMonths =(
-	"ከረመ",
-	"ጠቀመ",
-	"ኀደረ",
-	"ኀሠሠ",
-	"ጠሐረ",
-	"ከተተ",
-	"መገበ",
-	"አኀዘ",
-	"ግንባ",
-	"ሠንየ",
-	"ሐመለ",
-	"ነሐሰ",
-	"ጳጕሜ"
-);
-@ShortDaysTranscribed =(
-	"Aha",
-	"Sen",
-	"Sel",
-	"Rab",
-	"Ham",
-	"Arb",
-	"Ked"
-);
-@ShortMonthsTranscribed =(
-	"Ker",
-	"Tek",
-	"Hed",
-	"Hes",
-	"Teh",
-	"Ket",
-	"Meg",
-	"Ahe",
-	"Gen",
-	"Sen",
-	"Hem",
-	"Neh",
-	"Pag"
-);
+	use strict;
+	use vars qw(
+		@Days
+		@Months
+		@ShortDays
+		@ShortMonths
+	);
+	@Days =(
+		[ "አኀዱ",	"Ahadu"  ],
+		[ "ሰኑይ",	"Senuy"  ],
+		[ "ሠሉስ",	"Sellus" ],
+		[ "ራብዕ",	"Rabi"   ],
+		[ "ኃምስ",	"Hamis"  ],
+		[ "ዓርበ",	"Arbe"   ],
+		[ "ቀዳም",	"Kedam"  ]
+	);
+	@Months =(
+		[ "ከረመ",	"Kereme"  ],
+		[ "ጠቀመ",	"Tekeme"  ],
+		[ "ኀደረ",	"Hedere"  ],
+		[ "ኀሠሠ",	"Hesese"  ],
+		[ "ጠሐረ",	"Tehere"  ],  # ጥሕረ
+		[ "ከተተ",	"Ketete"  ],
+		[ "መገበ",	"Megebe"  ],
+		[ "አኀዘ",	"Aheze"   ],
+		[ "ግንባት",	"Genbat"  ],
+		[ "ሠንየ",	"Senye"   ],
+		[ "ሐመለ",	"Hemele"  ],
+		[ "ነሐሰ",	"Nehese"  ],
+		[ "ጳጕሜን",	"Pagumen" ]
+	);
+	@ShortDays =(
+		[ "አኀዱ",	"Aha" ],  # እኁድ
+		[ "ሰኑይ",	"Sen" ],  # ዕብራ
+		[ "ሠሉስ",	"Sel" ],  # ምንትው
+		[ "ራብዕ",	"Rab" ],  # ረቡዕ
+		[ "ኃምስ",	"Ham" ],
+		[ "ዓርበ",	"Arb" ],
+		[ "ቀዳም",	"Ked" ]   # ቀዳሚት
+	);
+	@ShortMonths =(
+		[ "ከረመ",	"Ker" ],
+		[ "ጠቀመ",	"Tek" ],
+		[ "ኀደረ",	"Hed" ],
+		[ "ኀሠሠ",	"Hes" ],
+		[ "ጠሐረ",	"Teh" ],
+		[ "ከተተ",	"Ket" ],
+		[ "መገበ",	"Meg" ],
+		[ "አኀዘ",	"Ahe" ],
+		[ "ግንባ",	"Gen" ],
+		[ "ሠንየ",	"Sen" ],
+		[ "ሐመለ",	"Hem" ],
+		[ "ነሐሰ",	"Neh" ],
+		[ "ጳጕሜ",	"Pag" ]
+	);
 }
-
-
-#
-#  auto utf8 doesn't penetrate several levels of inheritence
-#
-use utf8;
 
 
 sub _daysep
@@ -162,8 +103,7 @@ my ( $self, $day ) = @_;
 
 	$day %= 7;
 
-
-	( $self->{_trans} ) ? $DaysTranscribed[$day] : $Days[$day] ;
+	$Days[$day][$self->{_trans}];
 }
 
 
@@ -175,9 +115,7 @@ my ( $self, $day ) = @_;
 
 	$day %= 7;
 
-	my $pkg = ref($self);
-
-	( $self->{_trans} ) ? $ShortDaysTranscribed[$day] : $ShortDays[$day] ;
+	$ShortDays[$day][$self->{_trans}];
 }
 
 
@@ -189,9 +127,7 @@ my ( $self, $month ) = @_;
 
 	$month -= 1;
 
-	my $pkg = ref($self);
-
-	( $self->{_trans} ) ? $MonthsTranscribed[$month] : $Months[$month] ;
+	$Months[$month][$self->{_trans}];
 }
 
 
@@ -203,9 +139,7 @@ my ( $self, $month ) = @_;
 
 	$month -= 1;
 
-	my $pkg = ref($self);
-
-	( $self->{_trans} ) ? $ShortMonthsTranscribed[$month] : $ShortMonths[$month] ;
+	$ShortMonths[$month][$self->{_trans}];
 }
 
 
@@ -222,7 +156,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::gez - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::gez - Ge'ez Calendar Data for Date::Ethiopic.
 
 =head1 DESCRIPTION
 

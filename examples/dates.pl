@@ -119,6 +119,14 @@ print "  Day   Name: ", $gez->day_name, "\n";
 print "  Month Name: ", $gez->month_name, "\n";
 
 
+require Date::Ethiopic::ET::har;
+my $har = new Date::Ethiopic::ET::har ( ical => '19950629' );
+print "Testing[13]: ", $har->name, "\n";
+print "  Ethiopic : ", $har->day,"/",$har->month,"/",$har->year,"\n";
+print "  Day   Name: ", $har->day_name, "\n";
+print "  Month Name: ", $har->month_name, "\n";
+
+
 require Date::Ethiopic::ET::gru;
 my $gru = new Date::Ethiopic::ET::gru( ical => '19950629' );
 print "Testing[14]: ", $gru->name, "\n";

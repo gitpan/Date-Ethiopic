@@ -1,115 +1,63 @@
 package Date::Ethiopic::ET::guy;
-use base ( "Date::Ethiopic", "Date::Ethiopic::ET" );
+use base ( "Date::Ethiopic::ET", "Date::Ethiopic" );
 
 BEGIN
 {
-use strict;
-use vars qw(
-	@Days
-	@DaysTranscribed
-	@Months
-	@MonthsTranscribed
-	@ShortDays
-	@ShortDaysTranscribed
-	@ShortMonths
-	@ShortMonthsTranscribed
-);
-@Days =(
-	"ውርሰምበት",
-	"ውጠት",
-	"ወጠት መረጋ", # መገርገብያ
-	"ኧሮ",      # ኧረው
-	"አ(ምወ)ስ",  # ኸሚስ  amWes but mWe isn't in Unicode
-	"ጅማት",     # አዳረ
-	"ቀጣ ሰምበት"
-);
-@DaysTranscribed =(
-	"Wirsenbet",
-	"Witet",
-	"Witet Merega",
-	"Ero",
-	"Amwes",
-	"Jimat",
-	"Ketta Sembet"
-);
-@Months =(
-	"ይዳር",
-	"መሸ",
-	"ጥርር",  # እንተጐጐት
-	"መንገስ",
-	"ወቶ",
-	"ማንዝያ",
-	"ግር(ምወ)ት", # (mWe) is not in unicode
-	"ሰርየ",
-	"ናሴ",
-	"አምሬ",
-	"መስኸሮ",
-	"ጥቅምት",
-	""
-);
-@MonthsTranscribed =(
-	"Yidar",
-	"Mesh",
-	"Terir",
-	"Menges",
-	"Weto",
-	"Manziya",
-	"Germwet",
-	"Serye",
-	"Nasie",
-	"Amro",
-	"Meskhero",
-	"Tekemt",
-	""
-);
-@ShortDays =(
-	"ግድር",
-	"ውጠት",
-	"መገር",
-	"ሐርሴ",
-	"ከምስ",
-	"ጅማት",
-	"አሰን"
-);
-@ShortDaysTranscribed =(
-	"Gid",
-	"Wit",
-	"Jeg",
-	"Her",
-	"Kem",
-	"Jim",
-	"Ase"
-);
-@ShortMonths =(
-	"ይዳር",
-	"መሸ ",
-	"ጥርር",
-	"መንገ",
-	"ወቶ ",
-	"ማንዝ",
-	"ግርም",
-	"ሰርየ",
-	"ናሴ ",
-	"አምሬ",
-	"መስኸ",
-	"ጥቅም",
-	""
-);
-@ShortMonthsTranscribed =(
-	"Yid",
-	"Msh",
-	"Ter",
-	"Men",
-	"Wet",
-	"Man",
-	"Ger",
-	"Ser",
-	"Nas",
-	"Amr",
-	"Mes",
-	"Tek",
-	""
-);
+	use strict;
+	use vars qw(
+		@Days
+		@Months
+		@ShortDays
+		@ShortMonths
+	);
+	@Days =(
+		[ "ውርሰምበት",	"Wirsenbet"    ],
+		[ "ውጠት",	"Witet"        ],
+		[ "ወጠት መረጋ",	"Witet Merega" ], # መገርገብያ
+		[ "ኧሮ", 	"Ero"          ], # ኧረው
+		[ "አ(ምወ)ስ",	"Amwes"        ], # ኸሚስ  amWes but mWe isn't in Unicode
+		[ "ጅማት",	"Jimat"        ], # አዳረ
+		[ "ቀጣ ሰምበት",	"Ketta Sembet" ]
+	);
+	@Months =(
+		[ "ይዳር",	"Yidar"    ],
+		[ "መሸ", 	"Mesh"     ],
+		[ "ጥርር",	"Terir"    ], # እንተጐጐት
+		[ "መንገስ",	"Menges"   ],
+		[ "ወቶ", 	"Weto"     ],
+		[ "ማንዝያ",	"Manziya"  ],
+		[ "ግር(ምወ)ት",	"Germwet"  ], # (mWe) is not in unicode
+		[ "ሰርየ",	"Serye"    ],
+		[ "ናሴ", 	"Nasie"    ],
+		[ "አምሬ",	"Amro"     ],
+		[ "መስኸሮ",	"Meskhero" ],
+		[ "ጥቅምት",	"Tekemt"   ],
+		[ "",    	""         ]
+	);
+	@ShortDays =(
+		[ "ግድር",	"Gid" ],
+		[ "ውጠት",	"Wit" ],
+		[ "መገር",	"Jeg" ],
+		[ "ሐርሴ",	"Her" ],
+		[ "ከምስ",	"Kem" ],
+		[ "ጅማት",	"Jim" ],
+		[ "አሰን",	"Ase" ]
+	);
+	@ShortMonths =(
+		[ "ይዳር",	"Yid" ],
+		[ "መሸ ",	"Msh" ],
+		[ "ጥርር",	"Ter" ],
+		[ "መንገ",	"Men" ],
+		[ "ወቶ ",	"Wet" ],
+		[ "ማንዝ",	"Man" ],
+		[ "ግርም",	"Ger" ],
+		[ "ሰርየ",	"Ser" ],
+		[ "ናሴ ",	"Nas" ],
+		[ "አምሬ",	"Amr" ],
+		[ "መስኸ",	"Mes" ],
+		[ "ጥቅም",	"Tek" ],
+		[ "",   	""    ]
+	);
 }
 
 
@@ -138,7 +86,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET::guy - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ET::guy - Sebatbeit Calendar Data for Date::Ethiopic.
 
 =head1 SYNOPSIS
 

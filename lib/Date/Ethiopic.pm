@@ -1,25 +1,20 @@
 package Date::Ethiopic;
 use base (Date::ICal);
 
-
 BEGIN
 {
 	require 5.000;
 
 	use strict;
-
 	use vars qw(
 		$VERSION
 		$EPOCH
 
 		@Tabots
-		@TabotsTranscribed
-
 		@PagumeTabots
 		@PagumeTabotsTranscribed
 
 		@YearNames
-		@YearNamesTranscribed
 
 		@KokebDayNames
 		@KokebDayNamesTranscribed
@@ -57,7 +52,7 @@ BEGIN
 		$n
 	);
 
-	$VERSION = "0.10";
+	$VERSION = "0.11";
 
 	$EPOCH = 2796;
 
@@ -69,68 +64,36 @@ BEGIN
 	@GregorianDaysPerMonth = ( 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
 
 	@Tabots =(
-		"ልደታ",
-		"ታዴዎስና፡አባጉባ",
-		"በአታ",
-		"ዮሐንስ፡ሐዋርያው፡ወልደነጎድጓድ",
-		"አቦ (አቡነ ገብረ ቅዱስ)",
-		"ኢያሱስ",
-		"ሥላሴ",
-		"አባ፡ኪሮስ",
-		"ጨርቆስ",
-		"መስቀል፡ኢየሱስ",
-		"ሐና፡ማርያም",
-		"ሚካኤል",
-		"እግዚሐርአብ",
-		"አቡነ፡አረጋዊ",
-		"ጨርቆስ",
-		"ኪዳነ፡ምሕረት",
-		"እስጢፋኖስ",
-		"ቶማስ",
-		"ገብርኤል",
-		"ሕንፅተ፡ቤተ፡ለማርያም",
-		"ማርያም",
-		"ኡራኤል",
-		"ጊዮርጊስ",
-		"ተክለ፡ሐይማኖት",
-		"መርቆሪዎስ",
-		"ዮሴፍ",
-		"መድኀኔ ዓለም",
-		"አማኑኤል",
-		"ባለ፡እግዚአብሔር",
-		"ዮሐንስ፡እና፡ማርቆስ"
-	);
-	@TabotsTranscribed =(
-		"Lideta",
-		"Tadiosna Abaguba",
-		"Beata",
-		"Yohannes : Hawariyaw : Weldenegodgwad",
-		"Abo (Abune Gebre Kidus)",
-		"Yesus",
-		"Selassie",
-		"Aba Kiros",
-		"Cherkos",
-		"Meskel Yesus",
-		"Hanna Mariam",
-		"Michael",
-		"Egzihar Ab",
-		"Abune Aregawi",
-		"Cherkos",
-		"Kidane Mihret",
-		"Estifanos",
-		"Tomas",
-		"Gabriel",
-		"Hinste Bete Lemariam",
-		"Mariam",
-		"Urael",
-		"Giorgis",
-		"Tekle Haimanot",
-		"Merkoriwos",
-		"Yosef",
-		"Medehani Alem",
-		"Amanuel",
-		"Bale Egziabher",
-		"Yohannes Ina Markos"
+		[ "ልደታ",			"Lideta"                  ],
+		[ "ታዴዎስና፡አባጉባ",			"Tadiosna Abaguba"        ],
+		[ "በአታ",			"Beata"                   ],
+		[ "ዮሐንስ፡ሐዋርያው፡ወልደነጎድጓድ",	"Yohannes : Hawariyaw : Weldenegodgwad" ],
+		[ "አቦ (አቡነ ገብረ ቅዱስ)",		"Abo (Abune Gebre Kidus)" ],
+		[ "ኢያሱስ",			"Yesus"                   ],
+		[ "ሥላሴ",			"Selassie"                ],
+		[ "አባ፡ኪሮስ",			"Aba Kiros"               ],
+		[ "ጨርቆስ",			"Cherkos"                 ],
+		[ "መስቀል፡ኢየሱስ",			"Meskel Yesus"            ],
+		[ "ሐና፡ማርያም",			"Hanna Mariam"            ],
+		[ "ሚካኤል",			"Michael"                 ],
+		[ "እግዚሐርአብ",			"Egzihar Ab"              ],
+		[ "አቡነ፡አረጋዊ",			"Abune Aregawi"           ],
+		[ "ጨርቆስ",			"Cherkos"                 ],
+		[ "ኪዳነ፡ምሕረት",			"Kidane Mihret"           ],
+		[ "እስጢፋኖስ",			"Estifanos"               ],
+		[ "ቶማስ",			"Tomas"                   ],
+		[ "ገብርኤል",			"Gabriel"                 ],
+		[ "ሕንፅተ፡ቤተ፡ለማርያም",		"Hinste Bete Lemariam"    ],
+		[ "ማርያም",			"Mariam"                  ],
+		[ "ኡራኤል",			"Urael"                   ],
+		[ "ጊዮርጊስ",			"Giorgis"                 ],
+		[ "ተክለ፡ሐይማኖት",			"Tekle Haimanot"          ],
+		[ "መርቆሪዎስ",			"Merkoriwos"              ],
+		[ "ዮሴፍ",			"Yosef"                   ],
+		[ "መድኀኔ ዓለም",			"Medehani Alem"           ],
+		[ "አማኑኤል",			"Amanuel"                 ],
+		[ "ባለ፡እግዚአብሔር",			"Bale Egziabher"          ],
+		[ "ዮሐንስ፡እና፡ማርቆስ",		"Yohannes Ina Markos"     ]
 	);
 	@PagumeTabots =(
 		"አሮጊቷ፡ልደታ",
@@ -293,16 +256,10 @@ BEGIN
 	%AksumTsomesTranscribed =(
 	);
 	@YearNames =(
-		"ማቴዎስ",
-		"ማርቆስ",
-		"ሉቃስ",
-		"ዮሐንስ"  # Leap Year 
-	);
-	@YearNamesTranscribed =(
-		"Mateos",
-		"Markos",
-		"Lukas",
-		"Yohannes"
+		[ "ማቴዎስ", "Mateos"   ],
+		[ "ማርቆስ", "Markos"   ],
+		[ "ሉቃስ",  "Lukas"    ],
+		[ "ዮሐንስ", "Yohannes" ]  # Leap Year 
 	);
 	@KokebYearNames =(
 		"ምልክኤል",
@@ -776,7 +733,7 @@ my ( $self, $day ) = @_;
 
 	my $pkg = ref($self);
 
-	( $self->{_trans} ) ? ${"${pkg}::DaysTranscribed"}[$day] : ${"${pkg}::Days"}[$day] ;
+	${"${pkg}::Days"}[$day][$self->{_trans}];
 }
 
 
@@ -790,7 +747,7 @@ my ( $self, $day ) = @_;
 
 	my $pkg = ref($self);
 
-	( $self->{_trans} ) ? ${"${pkg}::ShortDaysTranscribed"}[$day] : ${"${pkg}::ShortDays"}[$day] ;
+	${"${pkg}::ShortDays"}[$day][$self->{_trans}];
 }
 
 
@@ -804,7 +761,7 @@ my ( $self, $month ) = @_;
 
 	my $pkg = ref($self);
 
-	( $self->{_trans} ) ? ${"${pkg}::MonthsTranscribed"}[$month] : ${"${pkg}::Months"}[$month] ;
+	${"${pkg}::Months"}[$month][$self->{_trans}];
 }
 
 
@@ -818,7 +775,7 @@ my ( $self, $month ) = @_;
 
 	my $pkg = ref($self);
 
-	( $self->{_trans} ) ? ${"${pkg}::ShortMonthsTranscribed"}[$month] : ${"${pkg}::ShortMonths"}[$month] ;
+	${"${pkg}::ShortMonths"}[$month][$self->{_trans}];
 }
 
 #
@@ -1002,11 +959,9 @@ my $self = shift;
 
 	( $month == 13 )
 	? ( $self->{_trans} )
-	  ? $PagumeTabotsTranscribed[$year]
-	  : $PagumeTabots[$year]
-	: ( $self->{_trans} )
-	  ? $TabotsTranscribed[$year]
-	  : $Tabots[$year]
+	  ? $PagumeTabotsTranscribed[$day]
+	  : $PagumeTabots[$day]
+	:  $Tabots[$day][$self->{_trans}]
 	;
 }
 
@@ -1016,8 +971,9 @@ sub zemene
 my $self = shift;
 my ( $year ) = ( @_ ) ? shift : $self->year;
 
-	( $self->{_trans} ) ? $YearNamesTranscribed[($year%4)] : $YearNames[($year%4)] ;
+	$YearNames[($year%4)][$self->{_trans}];
 }
+
 
 sub yearName { zemene(@_); }
 
@@ -1132,7 +1088,7 @@ for updates as they come in.
  LibEth: http://libeth.sourceforge.net/
  Ethiopica: http://ethiopica.sourceforge.net/
  Saint Gebriel Ethiopian Orthodox Church of Seattle: http://www.st-gebriel.org/
- Metsheheit Tibeb
+ Aklile Birhan Wold Kirkos, Metsaheit Tibeb, Neged Publishers, Addis Ababa, 1955 (1948 EC).
 
 =head1 REQUIRES
 

@@ -6,7 +6,7 @@
 use Test::More qw(no_plan);
 use strict;
 
-use Date::Ethiopic 'overload';
+require Date::Ethiopic;
 
 is ( 1, 1, "loaded." );
 

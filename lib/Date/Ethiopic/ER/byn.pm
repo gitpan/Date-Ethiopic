@@ -1,115 +1,63 @@
 package Date::Ethiopic::ER::byn;
-use base ( "Date::Ethiopic", "Date::Ethiopic::ER" );
+use base ( "Date::Ethiopic::ER", "Date::Ethiopic" );
 
 BEGIN
 {
-use strict;
-use vars qw(
-	@Days
-	@DaysTranscribed
-	@Months
-	@MonthsTranscribed
-	@ShortDays
-	@ShortDaysTranscribed
-	@ShortMonths
-	@ShortMonthsTranscribed
-);
-@Days =(
-	"ሰንበር ቅዳዅ",
-	"ሰኑ",
-	"ሰሊጝ",
-	"ለጓ ወሪ ለብዋ",
-	"ኣምድ",
-	"ኣርብ",
-	"ሰንበር ሽጓዅ"
-);
-@DaysTranscribed =(
-	"Senber Kidakwu",
-	"Senu",
-	"Selling",
-	"Legwa Weri Lebwa",
-	"Amid",
-	"Arb",
-	"Senber Shigwakwu" 
-);
-@Months =(
-	"ያኸኒ መሳቅለሪ",
-	"መተሉ",
-	"ምኪኤል መሽወሪ",
-	"ተሕሳስሪ",
-	"ልደትሪ",
-	"ካብኽብቲ",
-	"ክብላ",
-	"ፋጅኺሪ",
-	"ክቢቅሪ",
-	"ምኪኤል ት(ጝዋ)ኒሪ",  # GWa is not in Unicode
-	"ኰርኩ",
-	"ማርያም ትሪ",
-	"ጓቁመ"
-);
-@MonthsTranscribed =(
-	"Yakheni Mesakleri",
-	"Metelu",
-	"Michael Meshweri",
-	"Tahsasri",
-	"Lidetri",
-	"Kebakhibti",
-	"Kibla",
-	"Fajkhiri",
-	"Kibikri",
-	"Michael Tingwaniri",
-	"Kwerku",
-	"Mariam Tiri",
-	"Gwakume"
-);
-@ShortDays =(
-	"ሰ/ቅ",
-	"ሰኑ ",
-	"ሰሊጝ",
-	"ለጓ ",
-	"ኣምድ",
-	"ኣርብ",
-	"ሰ/ሽ"
-);
-@DaysTranscribed =(
-	"S/K",
-	"Sen",
-	"Sel",
-	"Leg",
-	"Ami",
-	"Arb",
-	"S/S" 
-);
-@ShortMonths =(
-	"ያኸኒ",
-	"መተሉ",
-	"ም/መ",
-	"ተሕሳ",
-	"ልደት",
-	"ካብኽ",
-	"ክብላ",
-	"ፋጅኺ",
-	"ክቢቅ",
-	"ም/ት",
-	"ኰርኩ",
-	"ማርያ",
-	"ጓቁመ"
-);
-@ShortMonthsTranscribed =(
-	"Yak",
-	"Met",
-	"M/M",
-	"Tah",
-	"Lid",
-	"Keb",
-	"Kib",
-	"Faj",
-	"Kbk",
-	"M/T",
-	"Kwe",
-	"Mar",
-	"Gwa"
-);
+	use strict;
+	use vars qw(
+		@Days
+		@Months
+		@ShortDays
+		@ShortMonths
+	);
+	@Days =(
+		[ "ሰንበር ቅዳዅ",	"Senber Kidakwu"   ],
+		[ "ሰኑ", 	"Senu"             ],
+		[ "ሰሊጝ",	"Selling"          ],
+		[ "ለጓ ወሪ ለብዋ",	"Legwa Weri Lebwa" ],
+		[ "ኣምድ",	"Amid"             ],
+		[ "ኣርብ",	"Arb"              ],
+		[ "ሰንበር ሽጓዅ",	"Senber Shigwakwu" ]
+	);
+	@Months =(
+		[ "ያኸኒ መሳቅለሪ",		"Yakheni Mesakleri"  ],
+		[ "መተሉ",		"Metelu"             ],
+		[ "ምኪኤል መሽወሪ",		"Michael Meshweri"   ],
+		[ "ተሕሳስሪ",		"Tahsasri"           ],
+		[ "ልደትሪ",		"Lidetri"            ],
+		[ "ካብኽብቲ",		"Kebakhibti"         ],
+		[ "ክብላ",		"Kibla"              ],
+		[ "ፋጅኺሪ",		"Fajkhiri"           ],
+		[ "ክቢቅሪ",		"Kibikri"            ],
+		[ "ምኪኤል ት(ጝዋ)ኒሪ",	"Michael Tingwaniri" ],
+		[ "ኰርኩ",		"Kwerku"             ],
+		[ "ማርያም ትሪ",		"Mariam Tiri"        ],
+		[ "ጓቁመ",		"Gwakume"            ]
+	);
+	@ShortDays =(
+		[ "ሰ/ቅ",	"S/K" ],
+		[ "ሰኑ ",	"Sen" ],
+		[ "ሰሊጝ",	"Sel" ],
+		[ "ለጓ ",	"Leg" ],
+		[ "ኣምድ",	"Ami" ],
+		[ "ኣርብ",	"Arb" ],
+		[ "ሰ/ሽ",	"S/S" ]
+	);
+	@ShortMonths =(
+		[ "ያኸኒ",	"Yak" ],
+		[ "መተሉ",	"Met" ],
+		[ "ም/መ",	"M/M" ],
+		[ "ተሕሳ",	"Tah" ],
+		[ "ልደት",	"Lid" ],
+		[ "ካብኽ",	"Keb" ],
+		[ "ክብላ",	"Kib" ],
+		[ "ፋጅኺ",	"Faj" ],
+		[ "ክቢቅ",	"Kbk" ],
+		[ "ም/ት",	"M/T" ],
+		[ "ኰርኩ",	"Kwe" ],
+		[ "ማርያ",	"Mar" ],
+		[ "ጓቁመ",	"Gwa" ]
+	);
 }
 
 
@@ -150,7 +98,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ER::byn - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ER::byn - Blin Calendar Data for Date::Ethiopic.
 
 =head1 SYNOPSIS
 

@@ -1,118 +1,31 @@
 package Date::Ethiopic::ET::gru;
-use base ( "Date::Ethiopic", "Date::Ethiopic::ET" );
+use base ( "Date::Ethiopic::ET", "Date::Ethiopic" );
 
 BEGIN
 {
-use strict;
-use vars qw(
-	@Days
-	@DaysTranscribed
-	@Months
-	@MonthsTranscribed
-	@ShortDays
-	@ShortDaysTranscribed
-	@ShortMonths
-	@ShortMonthsTranscribed
-);
-@Days =(
-	"ውርሰንበት",
-	"ውጠት",
-	"መናግ",
-	"ኧሮብ",
-	"ሐሙስ",
-	"ዓዳረ",
-	"ቅዳምሰንበት"
-);
-@DaysTranscribed =(
-	"Wirsenbet",
-	"Witet",
-	"Menag",
-	"Erob",
-	"Hemus",
-	"Adare",
-	"Qidamsenbet"
-);
-#
-#  Months are the same as Amharic
-#
-@Months =(
-	"መስከረም",
-	"ጥቅምት",
-	"ኅዳር",
-	"ታኅሣሥ",
-	"ጥር",
-	"የካቲት",
-	"መጋቢት",
-	"ሚያዝያ",
-	"ግንቦት",
-	"ሰኔ",
-	"ሐምሌ",
-	"ነሐሴ",
-	"ጳጉሜን"
-);
-@MonthsTranscribed =(
-	"Meskerem",
-	"Tekemt",
-	"Hedar",
-	"Tahsas",
-	"Ter",
-	"Yekatit",
-	"Megabit",
-	"Miazia",
-	"Genbot",
-	"Sene",
-	"Hamle",
-	"Nehasse",
-	"Pagumen"
-);
-@ShortDays =(
-	"ውርሰ",
-	"ውጠት",
-	"መናግ",
-	"ኧሮብ",
-	"ሐሙስ",
-	"ዓዳረ",
-	"ቅዳም"
-);
-@ShortDaysTranscribed =(
-	"Wir",
-	"Wit",
-	"Men",
-	"Ero",
-	"Hem",
-	"Ada",
-	"Qid"
-);
-@ShortMonths =(
-	"መስከ",
-	"ጥቅም",
-	"ኅዳር",
-	"ታኅሣ",
-	"ጥር ",
-	"የካቲ",
-	"መጋቢ",
-	"ሚያዝ",
-	"ግንቦ",
-	"ሰኔ ",
-	"ሐምሌ",
-	"ነሐሴ",
-	"ጳጉሜ"
-);
-@ShortMonthsTranscribed =(
-	"Mes",
-	"Tek",
-	"Hed",
-	"Tah",
-	"Ter",
-	"Yek",
-	"Meg",
-	"Mia",
-	"Gen",
-	"Sen",
-	"Ham",
-	"Neh",
-	"Pag"
-);
+	use strict;
+	use vars qw(
+		@Days
+		@ShortDays
+	);
+	@Days =(
+		[ "ውርሰንበት",	"Wirsenbet"   ],
+		[ "ውጠት",	"Witet"       ],
+		[ "መናግ",	"Menag"       ],
+		[ "ኧሮብ",	"Erob"        ],
+		[ "ሐሙስ",	"Hemus"       ],
+		[ "ዓዳረ",	"Adare"       ],
+		[ "ቅዳምሰንበት",	"Qidamsenbet" ]
+	);
+	@ShortDays =(
+		[ "ውርሰ",	"Wir" ],
+		[ "ውጠት",	"Wit" ],
+		[ "መናግ",	"Men" ],
+		[ "ኧሮብ",	"Ero" ],
+		[ "ሐሙስ",	"Hem" ],
+		[ "ዓዳረ",	"Ada" ],
+		[ "ቅዳም",	"Qid" ]
+	);
 }
 
 
@@ -125,6 +38,22 @@ sub _daysep
 sub name
 {
 	($_[0]->{_trans}) ? "Sodo" : "ሶዶ";
+}
+
+
+sub month_name
+{
+my ($self) = shift;
+
+	$self->SUPER::month_name ( @_ );
+}
+
+
+sub short_month_name
+{
+my ($self) = shift;
+
+	$self->SUPER::short_month_name ( @_ );
 }
 
 
@@ -141,7 +70,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET::gru - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ET::gru - Sodo Calendar Date for Date::Ethiopic.
 
 =head1 SYNOPSIS
 

@@ -1,12 +1,10 @@
 package Date::Ethiopic::ER;
 
-
 BEGIN
 {
 	require 5.000;
 
 	use strict;
-
 	use vars qw(
 		%EritreanHolidays
 		%EritreanHolidaysTranscribed
@@ -40,7 +38,6 @@ BEGIN
 }
 
 
-use utf8;
 sub _sep
 {
 	($_[0]->{_trans}) ? ", " : "፡ ";
@@ -72,7 +69,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ER - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ER - Eritrean Calendar Data for Date::Ethiopic.
 
 =head1 DESCRIPTION
 

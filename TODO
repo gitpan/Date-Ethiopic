@@ -6,7 +6,7 @@
 
 * Add ጾመ ገሀድ detection based on ትንሣኤ.
 
-* Add methods for holidays.  consider islamic holidays (complicated by
+* Add methods for holidays.  Consider islamic holidays (complicated by
   lunar calendar).
 
 * Complete formatting methods.  Don't forget ethiopic hour difference.

@@ -1,5 +1,5 @@
 package Date::Ethiopic::ET::ti;
-use base ( "Date::Ethiopic::ET", "Date::Ethiopic::ti" );
+use base ( "Date::Ethiopic::ti", "Date::Ethiopic::ET" );
 
 
 
@@ -15,7 +15,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET::ti - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ET::ti - Tigrinya Calendar Data for Date::Ethiopic.
 
 =head1 SYNOPSIS
 

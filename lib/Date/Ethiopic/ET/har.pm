@@ -1,115 +1,31 @@
-package Date::Ethiopic::har;
-use base ( "Date::Ethiopic", "Date::Ethiopic::ET" );
+package Date::Ethiopic::ET::har;
+use base ( "Date::Ethiopic::ET", "Date::Ethiopic" );
 
 BEGIN
 {
-use strict;
-use vars qw(
-	@Days
-	@DaysTranscribed
-	@Months
-	@MonthsTranscribed
-	@ShortDays
-	@ShortDaysTranscribed
-	@ShortMonths
-	@ShortMonthsTranscribed
-);
-@Days =(
-	"አልሓድ",
-	"ኢስኒን",
-	"ሰላሣ",
-	"አርብአ",
-	"ከሚስ",
-	"ጁምአ",
-	"ሰብቲ"
-);
-@DaysTranscribed =(
-	"Alhad",
-	"Isnin",
-	"Selasa",
-	"Arbaa",
-	"Khamis",
-	"Juma",
-	"Sebti" 
-);
-@Months =(
-	"መስከረም",
-	"ጥቅምት",
-	"ኅዳር",
-	"ታኅሣሥ",
-	"ጥር",
-	"የካቲት",
-	"መጋቢት",
-	"ሚያዝያ",
-	"ግንቦት",
-	"ሰኔ",
-	"ሐምሌ",
-	"ነሐሴ",
-	"ጳጉሜን"
-);
-@MonthsTranscribed =(
-	"Meskerem",
-	"Tekemt",
-	"Hedar",
-	"Tahsas",
-	"Ter",
-	"Yekatit",
-	"Megabit",
-	"Miazia",
-	"Genbot",
-	"Sene",
-	"Hamle",
-	"Nehasse",
-	"Pagumen"
-);
-@ShortDays =(
-	"አልሓ",
-	"ኢስኒ",
-	"ሰላሣ",
-	"አርብ",
-	"ከሚስ",
-	"ጁምአ",
-	"ሰብቲ"
-);
-@ShortDaysTranscribed =(
-	"Alh",
-	"Isn",
-	"Sel",
-	"Arb",
-	"Kha",
-	"Jum",
-	"Seb" 
-);
-@ShortMonths =(
-	"መስከ",
-	"ጥቅም",
-	"ኅዳር",
-	"ታኅሣ",
-	"ጥር ",
-	"የካቲ",
-	"መጋቢ",
-	"ሚያዝ",
-	"ግንቦ",
-	"ሰኔ ",
-	"ሐምሌ",
-	"ነሐሴ",
-	"ጳጉሜ"
-);
-@ShortMonthsTranscribed =(
-	"Mes",
-	"Tek",
-	"Hed",
-	"Tah",
-	"Ter",
-	"Yek",
-	"Meg",
-	"Mia",
-	"Gen",
-	"Sen",
-	"Ham",
-	"Neh",
-	"Pag"
-);
+	use strict;
+	use vars qw(
+		@Days
+		@ShortDays
+	);
+	@Days =(
+		[ "አልሓድ",	"Alhad"  ],
+		[ "ኢስኒን",	"Isnin"  ],
+		[ "ሰላሣ",	"Selasa" ],
+		[ "አርብአ",	"Arbaa"  ],
+		[ "ከሚስ",	"Khamis" ],
+		[ "ጁምአ",	"Juma"   ],
+		[ "ሰብቲ",	"Sebti"  ]
+	);
+	@ShortDays =(
+		[ "አልሓ",	"Alh" ],
+		[ "ኢስኒ",	"Isn" ],
+		[ "ሰላሣ",	"Sel" ],
+		[ "አርብ",	"Arb" ],
+		[ "ከሚስ",	"Kha" ],
+		[ "ጁምአ",	"Jum" ],
+		[ "ሰብቲ",	"Seb" ]
+	);
 }
 
 
@@ -131,9 +47,25 @@ sub pm
 }
 
 
-sub
+sub name
 {
 	($_[0]->{_trans}) ? "Harari" : "አደርኛ";
+}
+
+
+sub month_name
+{
+my ($self) = shift;
+
+	$self->SUPER::month_name ( @_ );
+}
+
+
+sub short_month_name
+{
+my ($self) = shift;
+
+	$self->SUPER::short_month_name ( @_ );
 }
 
 
@@ -150,7 +82,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET::har - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ET::har - Harari Calendar Data for Date::Ethiopic.
 
 =head1 SYNOPSIS
 

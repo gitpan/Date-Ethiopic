@@ -1,13 +1,16 @@
 package Date::Ethiopic::ET;
 
-
 BEGIN
 {
 	require 5.000;
 
 	use strict;
-
 	use vars qw(
+		@Days
+		@Months
+		@ShortDays
+		@ShortMonths
+
 		%EthiopianHolidays
 		%EthiopianHolidaysTranscribed
 	);
@@ -34,10 +37,57 @@ BEGIN
 	);
 	%EthiopianHolidaysTranscribed =(
 	);
+	@Days =(
+		[ "እሑድ",	"Ehud"     ],
+		[ "ሰኞ", 	"Sanyo"    ],
+		[ "ማክሰኞ",	"Maksanyo" ],
+		[ "ረቡዕ",	"Rub"      ],
+		[ "ሐሙስ",	"Hamus"    ],
+		[ "ዓርብ",	"Arb"      ],
+		[ "ቅዳሜ",	"Kidame"   ]
+	);
+	@Months =(
+		[ "መስከረም",	"Meskerem" ],
+		[ "ጥቅምት",	"Tekemt"   ],
+		[ "ኅዳር",	"Hedar"    ],
+		[ "ታኅሣሥ",	"Tahsas"   ],
+		[ "ጥር", 	"Ter"      ],
+		[ "የካቲት",	"Yekatit"  ],
+		[ "መጋቢት",	"Megabit"  ],
+		[ "ሚያዝያ",	"Miazia"   ],
+		[ "ግንቦት",	"Genbot"   ],
+		[ "ሰኔ", 	"Sene"     ],
+		[ "ሐምሌ",	"Hamle"    ],
+		[ "ነሐሴ",	"Nehasse"  ],
+		[ "ጳጉሜን",	"Pagumen"  ]
+	);
+	@ShortDays =(
+		[ "እሑድ",	"Ehu" ],
+		[ "ሰኞ ",	"San" ],
+		[ "ማክሰ",	"Mak" ],
+		[ "ረቡዕ",	"Rub" ],
+		[ "ሐሙስ",	"Ham" ],
+		[ "ዓርብ",	"Arb" ],
+		[ "ቅዳሜ",	"Kid" ]
+	);
+	@ShortMonths =(
+		[ "መስከ",	"Mes" ],
+		[ "ጥቅም",	"Tek" ],
+		[ "ኅዳር",	"Hed" ],
+		[ "ታኅሣ",	"Tah" ],
+		[ "ጥር ",	"Ter" ],
+		[ "የካቲ",	"Yek" ],
+		[ "መጋቢ",	"Meg" ],
+		[ "ሚያዝ",	"Mia" ],
+		[ "ግንቦ",	"Gen" ],
+		[ "ሰኔ ",	"Sen" ],
+		[ "ሐምሌ",	"Ham" ],
+		[ "ነሐሴ",	"Neh" ],
+		[ "ጳጉሜ",	"Pag" ]
+	);
 }
 
 
-use utf8;
 sub _sep
 {
 	($_[0]->{_trans}) ? ", " : "፣ ";
@@ -58,15 +108,61 @@ sub pm
 
 sub bc
 {
-use utf8;
 	($_[0]->{_trans}) ? "A/A" : "ዓ/ዓ";
 }
 
 
 sub ad
 {
-use utf8;
 	($_[0]->{_trans}) ? "A/M" : "ዓ/ም";
+}
+
+
+sub day_name
+{
+my ( $self, $day ) = @_;
+
+	$day ||= $self->_EthiopicToAbsolute;
+
+	$day %= 7;
+
+	$Days[$day][$self->{_trans}];
+}
+
+
+sub short_day_name
+{
+my ( $self, $day ) = @_;
+
+	$day ||= $self->_EthiopicToAbsolute;
+
+	$day %= 7;
+
+	$ShortDays[$day][$self->{_trans}];
+}
+
+
+sub month_name
+{
+my ( $self, $month ) = @_;
+
+	$month ||= $self->month;
+
+	$month -= 1;
+	
+	$Months[$month][$self->{_trans}];
+}
+
+
+sub short_month_name
+{
+my ( $self, $month ) = @_;
+
+	$month ||= $self->month;
+
+	$month -= 1;
+	
+	$ShortMonths[$month][$self->{_trans}];
 }
 
 
@@ -83,7 +179,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ET - Ethiopian Calendar Data for Date::Ethiopic.
 
 =head1 DESCRIPTION
 

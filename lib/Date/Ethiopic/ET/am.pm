@@ -1,115 +1,13 @@
 package Date::Ethiopic::ET::am;
-use base ( "Date::Ethiopic", "Date::Ethiopic::ET" );
+use base ( "Date::Ethiopic::ET", "Date::Ethiopic" );
 
 BEGIN
 {
-use strict;
-use vars qw(
-	@Days
-	@DaysTranscribed
-	@Months
-	@MonthsTranscribed
-	@ShortDays
-	@ShortDaysTranscribed
-	@ShortMonths
-	@ShortMonthsTranscribed
-);
-@Days =(
-	"እሑድ",
-	"ሰኞ",
-	"ማክሰኞ",
-	"ረቡዕ",
-	"ሐሙስ",
-	"ዓርብ",
-	"ቅዳሜ"
-);
-@DaysTranscribed =(
-	"Ehud",
-	"Sanyo",
-	"Maksanyo",
-	"Rub",
-	"Hamus",
-	"Arb",
-	"Kidame" 
-);
-@Months =(
-	"መስከረም",
-	"ጥቅምት",
-	"ኅዳር",
-	"ታኅሣሥ",
-	"ጥር",
-	"የካቲት",
-	"መጋቢት",
-	"ሚያዝያ",
-	"ግንቦት",
-	"ሰኔ",
-	"ሐምሌ",
-	"ነሐሴ",
-	"ጳጉሜን"
-);
-@MonthsTranscribed =(
-	"Meskerem",
-	"Tekemt",
-	"Hedar",
-	"Tahsas",
-	"Ter",
-	"Yekatit",
-	"Megabit",
-	"Miazia",
-	"Genbot",
-	"Sene",
-	"Hamle",
-	"Nehasse",
-	"Pagumen"
-);
-@ShortDays =(
-	"እሑድ",
-	"ሰኞ ",
-	"ማክሰ",
-	"ረቡዕ",
-	"ሐሙስ",
-	"ዓርብ",
-	"ቅዳሜ"
-);
-@ShortDaysTranscribed =(
-	"Ehu",
-	"San",
-	"Mak",
-	"Rub",
-	"Ham",
-	"Arb",
-	"Kid" 
-);
-@ShortMonths =(
-	"መስከ",
-	"ጥቅም",
-	"ኅዳር",
-	"ታኅሣ",
-	"ጥር ",
-	"የካቲ",
-	"መጋቢ",
-	"ሚያዝ",
-	"ግንቦ",
-	"ሰኔ ",
-	"ሐምሌ",
-	"ነሐሴ",
-	"ጳጉሜ"
-);
-@ShortMonthsTranscribed =(
-	"Mes",
-	"Tek",
-	"Hed",
-	"Tah",
-	"Ter",
-	"Yek",
-	"Meg",
-	"Mia",
-	"Gen",
-	"Sen",
-	"Ham",
-	"Neh",
-	"Pag"
-);
+	use strict;
+	#
+	# Since in Amharic is set for the Ethiopian 
+	# default, the data is in the parent class.
+	#
 }
 
 
@@ -137,6 +35,38 @@ sub name
 }
 
 
+sub day_name
+{
+my ($self) = shift;
+
+	$self->SUPER::day_name ( @_ );
+}
+
+
+sub short_day_name
+{
+my ($self) = shift;
+
+	$self->SUPER::short_day_name ( @_ );
+}
+
+
+sub month_name
+{
+my ($self) = shift;
+
+	$self->SUPER::month_name ( @_ );
+}
+
+
+sub short_month_name
+{
+my ($self) = shift;
+
+	$self->SUPER::short_month_name ( @_ );
+}
+
+
 
 #########################################################
 # Do not change this, Do not put anything below this.
@@ -150,7 +80,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET::am - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ET::am - Amharic Calendar Data for Date::Ethiopic.
 
 =head1 SYNOPSIS
 

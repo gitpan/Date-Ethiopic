@@ -1,5 +1,5 @@
 package Date::Ethiopic::ET::gez;
-use base ( "Date::Ethiopic::ET", "Date::Ethiopic::gez" );
+use base ( "Date::Ethiopic::gez", "Date::Ethiopic::ET" );
 
 
 
@@ -15,7 +15,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ET::gez - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ET::gez - Ge'ez Calendar Data for Date::Ethiopic.
 
 =head1 SYNOPSIS
 

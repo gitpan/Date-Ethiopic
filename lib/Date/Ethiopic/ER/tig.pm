@@ -1,56 +1,32 @@
 package Date::Ethiopic::ER::tig;
-use base ( "Date::Ethiopic", "Date::Ethiopic::ER" );
+use base ( "Date::Ethiopic::ER", "Date::Ethiopic" );
 
 BEGIN
 {
-require Date::Ethiopic::ti;  # use Tigrinya months
-use strict;
-use vars qw(
-	@Days
-	@DaysTranscribed
-	@Months
-	@MonthsTranscribed
-	@ShortDays
-	@ShortDaysTranscribed
-	@ShortMonths
-	@ShortMonthsTranscribed
-);
-@Days =(
-	"ሰንበት ዓባይ",
-	"አትኒን",
-	"አታሉት",
-	"አራቦዐ",  # አረርባዓ
-	"ኻሚስ",
-	"ጅምዓት",
-	"ሰንበት ንኢሽ"
-);
-@DaysTranscribed =(
-	"Senbet Abay",
-	"Altnin",
-	"Atalut",
-	"Arerba'a",
-	"Alkamis",
-	"Aljim'at",
-	"Senbet Nish"
-);
-@ShortDays =(
-	"ሰ/ዓ",
-	"አትኒ",
-	"አታሉ",
-	"አራቦ",
-	"ኻሚስ",
-	"ጅምዓ",
-	"ሰ/ን"
-);
-@ShortDaysTranscribed =(
-	"S/A",
-	"Alt",
-	"Ata",
-	"Are",
-	"Alk",
-	"Alj",
-	"S/N"
-);
+	use strict;
+	use vars qw(
+		@Days
+		@ShortDays
+	);
+	@Days =(
+		[ "ሰንበት ዓባይ",	"Senbet Abay" ],
+		[ "አትኒን",	"Altnin"      ],
+		[ "አታሉት",	"Atalut"      ],
+		[ "አራቦዐ",	"Arerba'a"    ],  # አረርባዓ
+		[ "ኻሚስ",	"Alkamis"     ],
+		[ "ጅምዓት",	"Aljim'at"    ],
+		[ "ሰንበት ንኢሽ",	"Senbet Nish" ],
+	);
+	@ShortDays =(
+		[ "ሰ/ዓ",	"S/A" ],
+		[ "አትኒ",	"Alt" ],
+		[ "አታሉ",	"Ata" ],
+		[ "አራቦ",	"Are" ],
+		[ "ኻሚስ",	"Alk" ],
+		[ "ጅምዓ",	"Alj" ],
+		[ "ሰ/ን",	"S/N" ],
+	);
+	require Date::Ethiopic::ti;
 }
 
 
@@ -71,9 +47,10 @@ sub month_name
 	Date::Ethiopic::ti::month_name ( @_ );
 }
 
+
 sub short_month_name
 {
-	Date::Ethiopic::ti::month_name ( @_ );
+	Date::Ethiopic::ti::short_month_name ( @_ );
 }
 
 
@@ -89,7 +66,7 @@ __END__
 
 =head1 NAME
 
-Date::Ethiopic::ER::tig - ICalendar for the Ethiopic Calendar System.
+Date::Ethiopic::ER::tig - Tigre Calendar Data for Date::Ethiopic.
 
 =head1 SYNOPSIS
 
